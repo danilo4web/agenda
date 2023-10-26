@@ -3,14 +3,14 @@
 
 ## Configuração do Ambiente:
 
+#### Criar .env:
+```cp .env.example .env```
+
 #### Rodar o projeto usando o Docker:
 ```docker-compose up -d --build```
 
 #### Acessar container docker:
 ```docker exec -it agenda_api_php bash```
-
-#### Criar .env:
-```cp .env.example .env```
 
 #### Instalar as dependências com o Composer:
 ```composer install```
@@ -26,6 +26,9 @@
 
 #### Rodar os casos de testes de integração:
 ```composer test tests/Integration```
+
+#### Atualizar documentação da API com Swagger:
+```php artisan swagger```
 
 =====================================================
 
@@ -64,7 +67,7 @@
 ##### Corpo da Requisição:
 ```
 {
-    "titulo": "Reunião importante",
+    "titulo": "Evento importante",
     "descricao": "Teste",
     "data_inicio": "2024-11-07",
     "data_prazo": "2024-11-08",
@@ -79,7 +82,7 @@
 ###### Corpo da Requisição:
 ```
 {
-    "titulo": "Atualizado!",
+    "titulo": "Evento Atualizado",
     "descricao": "Teste",
     "data_inicio": "2023-11-27",
     "data_prazo": "2023-11-30",

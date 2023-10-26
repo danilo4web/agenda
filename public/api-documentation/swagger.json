@@ -225,7 +225,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
             }
         },
         "/api/v1/agendas/filtrar": {
@@ -294,7 +299,7 @@
                 },
                 "security": [
                     {
-                        "sanctum": []
+                        "bearerToken": []
                     }
                 ]
             }
@@ -366,7 +371,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
             }
         },
         "/api/usuarios/cadastrar": {
