@@ -15,6 +15,46 @@ class AuthController extends Controller
     ) {
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/auth/login",
+     *     summary="Realizar login",
+     *     tags={"Auth"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"email", "password"},
+     *             @OA\Property(property="email", type="string", format="email"),
+     *             @OA\Property(property="password", type="string"),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Usuário logado com sucesso",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="boolean", example=true),
+     *             @OA\Property(property="message", type="string", example="Usuario logado com sucesso!"),
+     *             @OA\Property(property="token", type="string"),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response="401",
+     *         description="Email e/ou Password não foram encontrados",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="boolean", example=false),
+     *             @OA\Property(property="message", type="string"),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response="500",
+     *         description="Erro interno do servidor",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="boolean", example=false),
+     *             @OA\Property(property="message", type="string"),
+     *         ),
+     *     ),
+     * )
+     */
     public function login(LoginPostRequest $request): JsonResponse
     {
         try {
@@ -37,6 +77,25 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/auth/logout",
+     *     summary="Realizar logout",
+     *     tags={"Auth"},
+     *     @OA\Response(
+     *         response="204",
+     *         description="Tokens revogados",
+     *     ),
+     *     @OA\Response(
+     *         response="500",
+     *         description="Erro interno do servidor",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="boolean", example=false),
+     *             @OA\Property(property="message", type="string"),
+     *         ),
+     *     ),
+     * )
+     */
     public function logout(): JsonResponse
     {
         auth()->user()->tokens()->delete();

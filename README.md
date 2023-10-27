@@ -30,6 +30,9 @@
 #### Atualizar documentação da API com Swagger:
 ```php artisan swagger```
 
+#### Link para visualizar a documentação do API gerada pelo Swagger
+```http://0.0.0.0:8080/api-documentation/index.html```
+
 =====================================================
 
 # Endpoints da API:
