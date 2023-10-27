@@ -19,7 +19,7 @@
 ```php artisan key:generate```
 
 #### Executar as migrations (tabelas do banco de dados):
-```php artisan migrate```
+```php artisan migrate --seed```
 
 #### Verificar PSR-12:
 ```composer check-psr12```
