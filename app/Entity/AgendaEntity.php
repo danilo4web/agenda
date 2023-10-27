@@ -22,10 +22,6 @@ class AgendaEntity
 
     public static function fromArray(array $data): self
     {
-        if (!isset($data['data_inicio'])) {
-            dd($data);
-        }
-
         return new self(
             $data['data_inicio'],
             $data['data_prazo'] ?? null,
